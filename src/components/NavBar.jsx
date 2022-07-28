@@ -1,11 +1,16 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
-import Login from './Login';
 
-export default function NavBar() {
+export default function NavBar({ logoutHandler }) {
   return (
     <nav className="navbar navbar-expand-lg bg-light">
       <div className="container-fluid">
+        {session && (
+          <div>
+            Привет
+          </div>
+        )}
+
         <Link className="navbar-brand" to="/">
           Home
         </Link>
@@ -24,11 +29,20 @@ export default function NavBar() {
           <div className="navbar-nav">
             <Link className="nav-link" to="/posts">
               LK
-            </Link>{' '}
+            </Link>
+            {' '}
             {/* // появляется при авторизации пользователя */}
             <Link className="nav-link" to="/login">
               Login
             </Link>
+            <button
+              type="button"
+              className="nav-link"
+              onClick={logoutHandler}
+            >
+              LogOut
+
+            </button>
           </div>
         </div>
       </div>

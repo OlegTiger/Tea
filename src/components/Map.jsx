@@ -48,7 +48,6 @@ export default function Map({allTea}) {
   }, []);
   return (
     <div className="container mt-3">
-      { console.log("allTea--->", allTea)}
       <div>
         <div id="map" />
       </div>

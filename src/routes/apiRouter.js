@@ -17,5 +17,10 @@ router.post('/users', async (req, res) => {
   res.json({ name: currentUser.name });
 });
 
+router.get('/', async (req, res) => {
+  const allPosts = await Tea.findAll()
+
+  res.json(allPosts);
+});
 
 export default router;

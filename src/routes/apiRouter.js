@@ -36,10 +36,18 @@ router.post('/users', async (req, res) => {
   }
 });
 
+
 router.get('/logout', (req, res) => {
   res.clearCookie('user_sid'); // Удалить куку
   req.session.destroy(); // Завершить сессию
   res.sendStatus(200);
+
+
+router.get('/', async (req, res) => {
+  const allPosts = await Tea.findAll()
+
+  res.json(allPosts);
+
 });
 
 export default router;

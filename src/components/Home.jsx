@@ -1,16 +1,17 @@
-import React from 'react';
+import axios from 'axios';
+import React, {useEffect} from 'react';
 
 import Header from './Header';
 import Map from './Map';
-import Footer from './Footer';
 
-export default function Home() {
+
+export default function Home({allTea}) {
+
+
     return (
         <>
-
             <Header />
-            <Map />
-            <Footer />
+            <Map allTea={allTea} />
         </>
     );
 }

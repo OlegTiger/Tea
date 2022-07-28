@@ -4,9 +4,10 @@ import NavBar from './NavBar';
 
 import Login from './Login';
 import Home from './Home';
+import SingleTeaPage from './SingleTeaPage';
 
 export default function App({allTea}) {
-  console.log(allTea);
+
   const [authUser, setAuthUser] = useState({});
   return (
     <div className="container">
@@ -15,7 +16,7 @@ export default function App({allTea}) {
         <Route path="/" element={<Home allTea={allTea}/>} />
         <Route path="/login" element={<Login authUser={authUser} setAuthUser={setAuthUser} />} />
       </Routes>
-
+      <SingleTeaPage />
     </div>
   );
 }

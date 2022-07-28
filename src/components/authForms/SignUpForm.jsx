@@ -1,14 +1,18 @@
 import axios from 'axios';
 import React, { useState } from 'react';
+import { useNavigate } from 'react-router-dom';
 
 export default function SignUpForm({ setAuthUser }) {
+  const navigate = useNavigate();
   const [input, setInput] = useState({ username: '', password: '', email: '' });
   const changeHandler = (e) => setInput((prev) => ({ ...prev, [e.target.name]: e.target.value }));
   const submitHandler = (e) => {
     e.preventDefault();
     if (input.password !== '' && input.username !== '' && input.email !== '') {
       axios.post('/api/v1/users', input)
-        .then((res) => setAuthUser(res.data));
+        .then((res) => {
+          navigate('/');
+          setAuthUser(res.data)});
     }
   };
   return (

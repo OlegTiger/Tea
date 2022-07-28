@@ -1,20 +1,21 @@
+import axios from 'axios';
 import React, { useState } from 'react';
-import { Route, Routes } from 'react-router-dom';
 import NavBar from './NavBar';
+import PrivateRoutes from './reactRouting/PrivateRoutes';
+import PublicRoutes from './reactRouting/PublicRoutes';
 
-import Login from './Login';
-import Home from './Home';
 
-export default function App() {
-  const [authUser, setAuthUser] = useState({});
+export default function App({ usernameSession }) {
+  const [authUser, setAuthUser] = useState(usernameSession);
+  const logoutHandler = () => {
+    setAuthUser({}); // Чиним logout -> setAuthUser({})
+    axios.get('/api/v1/logout').then(() => {});
+  };
   return (
     <div className="container">
-      <NavBar />
-      <Routes>
-        <Route path="/" element={<Home />} />
-        <Route path="/login" element={<Login authUser={authUser} setAuthUser={setAuthUser} />} />
-      </Routes>
-
+      <NavBar logoutHandler={logoutHandler}/>
+      {authUser?.name ? <PrivateRoutes authUser={authUser} setAuthUser={setAuthUser} />
+        : <PublicRoutes authUser={authUser} setAuthUser={setAuthUser} />}
     </div>
   );
 }

@@ -7,4 +7,10 @@ router.get('/', (req, res) => {
   res.send(template({ path: req.originalUrl }));
 });
 
+router.get('/login', (req, res) => {
+  res.send(template({path: req.originalUrl }));
+});
+
+
+
 export default router;

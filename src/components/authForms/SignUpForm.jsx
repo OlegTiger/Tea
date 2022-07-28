@@ -1,13 +1,25 @@
-import React from 'react';
+import axios from 'axios';
+import React, { useState } from 'react';
 
-export default function SignUpForm() {
+export default function SignUpForm({ setAuthUser }) {
+  const [input, setInput] = useState({ username: '', password: '', email: '' });
+  const changeHandler = (e) => setInput((prev) => ({ ...prev, [e.target.name]: e.target.value }));
+  const submitHandler = (e) => {
+    e.preventDefault();
+    if (input.password !== '' && input.username !== '' && input.email !== '') {
+      axios.post('/api/v1/users', input)
+        .then((res) => setAuthUser(res.data));
+    }
+  };
   return (
-    <form>
+    <form onSubmit={submitHandler}>
       <div className="mb-3">
         <label htmlFor="exampleInputEmail1" className="form-label">
           Username
         </label>
         <input
+          value={input.username}
+          onChange={changeHandler}
           type="text"
           name="username"
           className="form-control"
@@ -20,6 +32,8 @@ export default function SignUpForm() {
           Password
         </label>
         <input
+          value={input.password}
+          onChange={changeHandler}
           type="password"
           name="password"
           className="form-control"
@@ -31,6 +45,8 @@ export default function SignUpForm() {
           Email
         </label>
         <input
+          value={input.email}
+          onChange={changeHandler}
           type="email"
           name="email"
           className="form-control"

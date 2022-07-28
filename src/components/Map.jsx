@@ -1,9 +1,20 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 
 export default function Map() {
+  useEffect(() => {
+    ymaps.ready(init);
+    function init() {
+      const myMap = new ymaps.Map('map', {
+        center: [55.76, 37.64],
+        zoom: 7,
+      });
+    }
+  }, []);
   return (
     <div className="container mt-3">
-      <div className="border border">Тут будет жить API</div>
+      <div>
+        <div id="map" />
+      </div>
     </div>
   );
 }

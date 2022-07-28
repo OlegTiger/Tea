@@ -4,12 +4,12 @@ import Header from './Header';
 import Map from './Map';
 import Footer from './Footer';
 
-export default function Home() {
+export default function Home({allTea}) {
     return (
         <>
 
             <Header />
-            <Map />
+            <Map allTea={allTea}/>
             <Footer />
         </>
     );

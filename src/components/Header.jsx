@@ -4,12 +4,14 @@ export default function Header() {
   return (
     <div className="container mt-2 ">
       <div>
-        <img src="#" alt="logo" />
+        <img src="https://teacast.ru/pictures/logo_20210215235834.jpg" alt="logo" />
       </div>
-      Lorem ipsum dolor sit amet consectetur adipisicing elit. Dolore, sit
-      error? Dolores neque animi velit veritatis illum placeat at eius
-      dignissimos explicabo, quidem omnis delectus mollitia itaque eos expedita!
-      Nisi.
+      Друзья, мы рады приветствовать вас на нашем сайте. Здесь вы можете узнать
+      многое о чае, почитать информацию о его разновидностях и мировых
+      платнациях. 10 стран производят более 90 процентов мирового производства
+      чая, а именно: Китай, Индия, Кения, Шри-Ланка, Турция, Вьетнам, Индонезия,
+      Мьянма, Аргентина, Япония. Надеемся, что наш сайт придется вам по вкусу и вы
+      вступите в наше чайное братство. Ниже на карте вы можете изучить все популярные чаи! 
     </div>
   );
 }

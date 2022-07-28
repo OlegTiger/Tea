@@ -6,7 +6,7 @@ export default function Login({ setAuthUser, authUser }) {
   return (
     <>
       {' '}
-      { /* authUser && */ authUser?.name ? `Hello, ${authUser?.name}` // Нужно проверять наличие name, то есть authUser.name ?
+      { /* authUser && */ authUser?.username ? `Hello, ${authUser?.username}` // Нужно проверять наличие name, то есть authUser.name ?
         : (
           <>
             <nav>

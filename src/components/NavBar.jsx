@@ -5,12 +5,6 @@ export default function NavBar({ logoutHandler }) {
   return (
     <nav className="navbar navbar-expand-lg bg-light">
       <div className="container-fluid">
-        {session && (
-          <div>
-            Привет
-          </div>
-        )}
-
         <Link className="navbar-brand" to="/">
           Home
         </Link>

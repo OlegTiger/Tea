@@ -1,6 +1,6 @@
 import express from 'express';
 import bcrypt from 'bcrypt';
-import { User } from '../db/models';
+import { User, Tea } from '../db/models';
 
 const router = express.Router();
 
@@ -13,6 +13,7 @@ router.post('/users', async (req, res) => {
       email: req.body.email,
     },
     defaults: {
+      name: req.body.username,
       password: hashpass, // Убираем в defaults, производим сравнение через bcrypt.compare
     },
   });
@@ -36,18 +37,16 @@ router.post('/users', async (req, res) => {
   }
 });
 
-
 router.get('/logout', (req, res) => {
   res.clearCookie('user_sid'); // Удалить куку
   req.session.destroy(); // Завершить сессию
   res.sendStatus(200);
-
+});
 
 router.get('/', async (req, res) => {
-  const allPosts = await Tea.findAll()
+  const allPosts = await Tea.findAll();
 
   res.json(allPosts);
-
 });
 
 export default router;

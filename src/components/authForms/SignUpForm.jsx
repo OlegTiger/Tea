@@ -9,16 +9,18 @@ export default function SignUpForm({ setAuthUser }) {
   const submitHandler = (e) => {
     e.preventDefault();
     if (input.password !== '' && input.username !== '' && input.email !== '') {
+      console.log('PAMAGITE');
       axios.post('/api/v1/users', input)
         .then((res) => {
           navigate('/');
-          setAuthUser(res.data)});
+          setAuthUser(res.data);
+        });
     }
   };
   return (
     <form onSubmit={submitHandler}>
       <div className="mb-3">
-        <label htmlFor="exampleInputEmail1" className="form-label">
+        <label htmlFor="exampleInputUserS" className="form-label">
           Username
         </label>
         <input
@@ -27,12 +29,12 @@ export default function SignUpForm({ setAuthUser }) {
           type="text"
           name="username"
           className="form-control"
-          id="exampleInputEmail1"
+          id="exampleInputUserS"
           aria-describedby="emailHelp"
         />
       </div>
       <div className="mb-3">
-        <label htmlFor="exampleInputPassword1" className="form-label">
+        <label htmlFor="exampleInputPasswordS" className="form-label">
           Password
         </label>
         <input
@@ -41,11 +43,11 @@ export default function SignUpForm({ setAuthUser }) {
           type="password"
           name="password"
           className="form-control"
-          id="exampleInputPassword1"
+          id="exampleInputPasswordS"
         />
       </div>
       <div className="mb-3">
-        <label htmlFor="exampleInputPassword2" className="form-label">
+        <label htmlFor="exampleInputPasswordS2" className="form-label">
           Email
         </label>
         <input
@@ -54,7 +56,7 @@ export default function SignUpForm({ setAuthUser }) {
           type="email"
           name="email"
           className="form-control"
-          id="exampleInputPassword2"
+          id="exampleInputPasswordS2"
         />
       </div>
       <button type="submit" className="btn btn-primary">

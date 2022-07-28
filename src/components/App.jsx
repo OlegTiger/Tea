@@ -5,6 +5,8 @@ import NavBar from './NavBar';
 import Login from './Login';
 import Home from './Home';
 
+import SingleTeaPage from './SingleTeaPage';
+
 export default function App() {
   const [authUser, setAuthUser] = useState({});
   return (
@@ -14,7 +16,7 @@ export default function App() {
         <Route path="/" element={<Home />} />
         <Route path="/login" element={<Login authUser={authUser} setAuthUser={setAuthUser} />} />
       </Routes>
-
+      <SingleTeaPage />
     </div>
   );
 }

@@ -6,7 +6,7 @@ export default function Map() {
     function init() {
       const myMap = new ymaps.Map('map', {
         center: [55.76, 37.64],
-        zoom: 8,
+        zoom: 7,
       });
     }
   }, []);

@@ -13,7 +13,7 @@ export default function App({ usernameSession, allTea, teaPost }) {
   console.log('NEW AUTH:', authUser);
   const logoutHandler = () => {
     setAuthUser({}); // Чиним logout -> setAuthUser({})
-    axios.get('/api/v1/logout').then(() => { });
+    axios.get('/api/v1/logout').then(() => {});
   };
 
   return (
@@ -22,19 +22,18 @@ export default function App({ usernameSession, allTea, teaPost }) {
       <Routes>
         <Route path="/" element={<Home allTea={allTea} teaPost={teaPost} />} />
       </Routes>
-      {authUser?.username
-        ? (
-          <PrivateRoutes
-            authUser={authUser}
-            allTea={allTea2}
-            teaPost={teaPost}
-            setAuthUser={setAuthUser}
-          />
-        )
-        : <PublicRoutes authUser={authUser} setAuthUser={setAuthUser} />}
+      {authUser?.username ? (
+        <PrivateRoutes
+          authUser={authUser}
+          allTea={allTea2}
+          teaPost={teaPost}
+          setAuthUser={setAuthUser}
+        />
+      ) : (
+        <PublicRoutes authUser={authUser} setAuthUser={setAuthUser} />
+      )}
 
       <Footer />
-
     </div>
   );
 }

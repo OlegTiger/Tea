@@ -3,7 +3,7 @@ import { Link } from 'react-router-dom';
 
 export default function NavBar({ logoutHandler, user }) {
   return (
-    <nav className="navbar navbar-expand-lg bg-light">
+    <nav className="nawnaw navbar navbar-expand-lg bg-light">
       <div className="container-fluid">
         <Link className="navbar-brand" to="/">
           Home

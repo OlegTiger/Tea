@@ -20,7 +20,6 @@ router.post('/users', async (req, res) => {
   if (created) {
     // Сохраняем в сессию какую-то информацию и актвиируем её
     req.session.username = currentUser.name;
-
     req.session.userId = currentUser.id;
     res.json({ username: currentUser.name, id: currentUser.id });
   } else {
@@ -30,7 +29,6 @@ router.post('/users', async (req, res) => {
     } else {
       // Сохраняем в сессию какую-то информацию и актвиируем её
       req.session.username = currentUser.name;
-
       req.session.userId = currentUser.id;
       res.json({ username: currentUser.name, id: currentUser.id });
     }
@@ -51,6 +49,24 @@ router.post('/newpost', async (req, res) => {
     console.log(error);
     return res.sendStatus(500);
   }
+
+router.post('/users2', async (req, res) => {
+  const { email, password } = req.body;
+  if (email && password) {
+    try {
+      const user = await User.findOne({ where: { email } });
+      if (user && await bcrypt.compare(password, user.password)) {
+        req.session.username = user.name;
+        req.session.userId = user.id;
+        return res.json({ username: user.name, id: user.id });
+      }
+      return res.sendStatus(401);
+    } catch (err) {
+      console.error(err);
+      return res.sendStatus(500);
+    }
+  }
+  return res.sendStatus(401);
 });
 
 router.get('/logout', (req, res) => {
@@ -61,7 +77,6 @@ router.get('/logout', (req, res) => {
 
 router.get('/', async (req, res) => {
   const allPosts = await Tea.findAll();
-
   res.json(allPosts);
 });
 

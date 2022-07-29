@@ -4,7 +4,7 @@ import Card from 'react-bootstrap/Card';
 
 export default function SingleTeaPage({teaPost}) {
   return (
-    <div className="m-2">
+    <div className="m-2 tea_card">
       <Card className="card_tea" style={{ width: '45rem' }}>
         <Card.Img className="img m-2" variant="top" src={teaPost.img} alt="img_tea" />
         <Card.Body>

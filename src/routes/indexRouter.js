@@ -5,7 +5,6 @@ import { Tea } from '../db/models';
 const router = express.Router();
 
 router.get('/', async (req, res) => {
-  // console.log('GET INDEX -> current session -->>', req.session.username);
   const allTea = await Tea.findAll();
   res.send(template({
     path: req.originalUrl,
@@ -13,15 +12,9 @@ router.get('/', async (req, res) => {
     usernameSession: {
       username: req.session?.username,
       id: req.session?.userId,
-    }, // usernameSession -> object, key = username
+    }, 
   }));
-}); // Добавляем в темплейт информвацию о сессии для фронт
-
-/* router.get('/', async (req, res) => {
-  const allTea = await Tea.findAll();
-
-  res.send(template({ path: req.originalUrl, allTea }));
-}); */
+}); 
 
 router.get('/login', (req, res) => {
   res.send(template({

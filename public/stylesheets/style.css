@@ -1,10 +1,20 @@
 #map {
-  width: 672px;
-  height: 402px;
+  width: 100%;
+  height: 500px;
+}
+.card_tea{
+  background: transparent
 }
 
 .img {
-  width: 150px;
+  width: 200px;
+}
+
+.input_width{
+  width: 20rem
+}
+.input_width2{
+  width: 20rem
 }
 
 .tea_name {
@@ -16,5 +26,41 @@
 }
 
 .card_tea {
-  box-shadow: 0 0 10px rgba(0,0,0,0.5)
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+}
+
+.tealogo {
+  display: flex;
+  justify-content: center;
+}
+
+body {
+  background-image: linear-gradient(to top, #96fbc4 0%, #f9f586 100%);
+}
+
+.footer {
+  display: block;
+  text-align: center;
+  color: rgb(42 42 42);
+  background-blend-mode: normal, color-burn;
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  height: 50px;
+  width: 100%;
+  border-top: 1px solid rgb(69, 69, 69);
+  padding-top: 15px;
+}
+
+.nawnaw {
+  font-weight: 300;
+  --bs-bg-opacity: 0;
+  /* background-color: red; */
+}
+
+.logout {
+  background-color: rgba(28, 28, 28, 0);
+  border-radius: 1rem;
+  padding: 0px 13px;
 }

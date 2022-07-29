@@ -45,7 +45,7 @@ export default function Login({ setAuthUser, authUser }) {
                 aria-labelledby="nav-home-tab"
                 tabIndex="0"
               >
-                <LogInForm />
+                <LogInForm setAuthUser={setAuthUser}/>
               </div>
               <div
                 className="tab-pane fade"

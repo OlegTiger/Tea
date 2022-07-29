@@ -10,11 +10,12 @@ export default function SignUpForm({ setAuthUser }) {
   const submitHandler = (e) => {
     e.preventDefault();
     if (input.password !== '' && input.username !== '' && input.email !== '') {
-      console.log('PAMAGITE');
-      axios.post('/api/v1/users', input).then((res) => {
-        navigate('/');
-        setAuthUser(res.data);
-      });
+ 
+      axios.post('/api/v1/users', input)
+        .then((res) => {
+          navigate('/');
+          setAuthUser(res.data);
+        });
     }
   };
   return (

@@ -5,9 +5,9 @@ import { User, Tea } from '../db/models';
 const router = express.Router();
 
 router.post('/users', async (req, res) => {
-  console.log(req.body);
+  // console.log(req.body);
   const hashpass = await bcrypt.hash(req.body.password, 10);
-  console.log(hashpass);
+  // console.log(hashpass);
   const [currentUser, created] = await User.findOrCreate({
     where: {
       email: req.body.email,
@@ -34,6 +34,22 @@ router.post('/users', async (req, res) => {
       req.session.userId = currentUser.id;
       res.json({ username: currentUser.name, id: currentUser.id });
     }
+  }
+});
+
+router.get('/admin', async (req, res) => {
+  const allTea = await Tea.findAll({ order: [['updatedAt', 'DESC']] });
+  res.json(allTea);
+});
+
+router.post('/newpost', async (req, res) => {
+  try {
+    await Tea.create(req.body);
+    const allTea = await Tea.findAll({ order: [['updatedAt', 'DESC']] });
+    return res.json(allTea);
+  } catch (error) {
+    console.log(error);
+    return res.sendStatus(500);
   }
 });
 

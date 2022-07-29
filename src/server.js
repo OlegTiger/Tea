@@ -16,7 +16,6 @@ app.use(morgan('dev'));
 app.use(express.urlencoded({ extended: true }));
 app.use(express.json());
 
-
 const sessionConfig = {
   name: 'user_sid', 				// Имя куки для хранения id сессии. По умолчанию - connect.sid
   secret: 'andromeda' ?? 'test',	// Секретное слово для шифрования, может быть любым

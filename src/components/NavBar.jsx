@@ -21,7 +21,7 @@ export default function NavBar({ logoutHandler }) {
         </button>
         <div className="collapse navbar-collapse" id="navbarNavAltMarkup">
           <div className="navbar-nav">
-            <Link className="nav-link" to="/posts">
+            <Link className="nav-link" to="/admin">
               LK
             </Link>
             {' '}

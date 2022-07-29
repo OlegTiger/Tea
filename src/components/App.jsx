@@ -11,14 +11,15 @@ export default function App({ usernameSession, allTea, teaPost }) {
   const [allTea2, setAllTea2] = useState(allTea);
   const [authUser, setAuthUser] = useState(usernameSession);
   console.log('NEW AUTH:', authUser);
-  const logoutHandler = () => {
-    setAuthUser({}); // Чиним logout -> setAuthUser({})
+  const logoutHandler = (e) => {
+    e.preventDefault();
+    setAuthUser({}); 
     axios.get('/api/v1/logout').then(() => { });
   };
 
   return (
     <div className="container">
-      <NavBar logoutHandler={logoutHandler} />
+      <NavBar logoutHandler={logoutHandler} user={authUser}/>
       <Routes>
         <Route path="/" element={<Home allTea={allTea} teaPost={teaPost} />} />
       </Routes>
@@ -34,7 +35,6 @@ export default function App({ usernameSession, allTea, teaPost }) {
         : <PublicRoutes authUser={authUser} setAuthUser={setAuthUser} />}
 
       <Footer />
-
     </div>
   );
 }

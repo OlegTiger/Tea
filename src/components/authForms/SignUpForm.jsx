@@ -13,6 +13,7 @@ export default function SignUpForm({ setAuthUser }) {
       axios.post('/api/v1/users', input)
         .then((res) => {
           navigate('/');
+          console.log(res.data);
           setAuthUser(res.data);
         });
     }

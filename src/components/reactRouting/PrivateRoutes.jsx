@@ -1,5 +1,7 @@
 import React from 'react';
 import { Route, Routes } from 'react-router-dom';
+import Admin from '../Admin';
+import Home from '../Home';
 import Login from '../Login';
 import SingleTeaPage from '../SingleTeaPage';
 
@@ -11,6 +13,7 @@ export default function PrivateRoutes({
       {/* <Route path="/" element={<Home allTea={allTea} teaPost={teaPost} />} /> */}
       <Route path="/login" element={<Login authUser={authUser} setAuthUser={setAuthUser} />} />
       <Route path="/tea/:id" element={<SingleTeaPage teaPost={teaPost} />} />
+      <Route path="/admin" element={<Admin allTea={allTea} />} />
     </Routes>
   );
 }

@@ -32,7 +32,7 @@ export default function NavBar({ logoutHandler, user }) {
                   !
                 </span>
               </li>
-              <Link className="nav-link" to="/posts">
+              <Link className="nav-link" to="/admin">
                 LK
               </Link>
               <li className="nav-item">
@@ -41,7 +41,6 @@ export default function NavBar({ logoutHandler, user }) {
             </>
 
           )
-
             : (
               <div className="collapse navbar-collapse" id="navbarNavAltMarkup">
                 <div className="navbar-nav">

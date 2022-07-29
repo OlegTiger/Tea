@@ -1,5 +1,4 @@
 import express from 'express';
-import async from 'hbs/lib/async';
 import template from '../template';
 import { Tea } from '../db/models';
 
@@ -40,5 +39,7 @@ router.get('/tea/:id', async (req, res) => {
     },
   }));
 });
+
+
 
 export default router;

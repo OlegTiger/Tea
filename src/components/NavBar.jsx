@@ -26,7 +26,7 @@ export default function NavBar({ logoutHandler, user }) {
               <li className="nav-item nomarker greeting">
                 <span className="nav-link">Привет, {user.username}!</span>
               </li>
-              <Link className="lispace nav-link" to="/posts">
+              <Link className="lispace nav-link" to="/admin">
                 Личный кабинет
               </Link>
               <li className="nav-item nomarker ">
@@ -35,12 +35,13 @@ export default function NavBar({ logoutHandler, user }) {
                 </button>
               </li>
             </>
-          ) : (
-            <div className="collapse navbar-collapse" id="navbarNavAltMarkup">
-              <div className="navbar-nav">
-                <Link className="nav-link" to="/login">
-                  Login
-                </Link>
+          )
+            : (
+              <div className="collapse navbar-collapse" id="navbarNavAltMarkup">
+                <div className="navbar-nav">
+                  <Link className="nav-link" to="/login">
+                    Login
+                  </Link>
               </div>
             </div>
           )}

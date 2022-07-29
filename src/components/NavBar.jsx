@@ -4,7 +4,7 @@ import { Link } from 'react-router-dom';
 export default function NavBar({ logoutHandler, user }) {
   return (
     <nav className="nawnaw navbar navbar-expand-lg bg-light">
-      <div className="container-fluid">
+      <div className="container-fluid baseline ">
         <Link className="navbar-brand" to="/">
           Home
         </Link>
@@ -20,37 +20,30 @@ export default function NavBar({ logoutHandler, user }) {
         >
           <span className="navbar-toggler-icon" />
         </button>
-        <ul>
+        <ul className="ulspace">
           {user.username ? (
             <>
-              <li className="nav-item">
-                <span className="nav-link">
-                  Привет,
-                  {' '}
-                  {user.username}
-                  {' '}
-                  !
-                </span>
+              <li className="nav-item nomarker greeting">
+                <span className="nav-link">Привет, {user.username}!</span>
               </li>
-              <Link className="nav-link" to="/posts">
-                LK
+              <Link className="lispace nav-link" to="/posts">
+                Личный кабинет
               </Link>
-              <li className="nav-item">
-                <button onClick={logoutHandler}>Выход</button>
+              <li className="nav-item nomarker ">
+                <button className="logout" onClick={logoutHandler}>
+                  Выход
+                </button>
               </li>
             </>
-
-          )
-
-            : (
-              <div className="collapse navbar-collapse" id="navbarNavAltMarkup">
-                <div className="navbar-nav">
-                  <Link className="nav-link" to="/login">
-                    Login
-                  </Link>
-                </div>
+          ) : (
+            <div className="collapse navbar-collapse" id="navbarNavAltMarkup">
+              <div className="navbar-nav">
+                <Link className="nav-link" to="/login">
+                  Login
+                </Link>
               </div>
-            )}
+            </div>
+          )}
         </ul>
       </div>
     </nav>
